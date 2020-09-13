@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <!--
 PROJ_2020: AVAL. Tecnol. Internet (I) 
-Aluno num. 99999, Nome Apelido
+Aluno num. 19452, Tomás Colaço
 -->
 <html lang="pt">
 	<head>
 		<meta charset="utf-8" />
 		<title>PROJ_2020: AVAL. Tecnol. Internet (I)</title>
-		<link href="projNomeCSS.css" rel="stylesheet" type="text/css">
-		<script src=""></script>
-		<script src=""></script>
-		<script src="projNomeSCR.js"></script>
+		
+		<!-- Ficheiro CSS -->
+		<link href="proj_2020_CSS.css" rel="stylesheet" type="text/css">
+		
+		<!-- Ficheiro com as funções de parsing  -->
+		<script src="proj_2020_PARS.js"></script>
+		
+		<!-- Ficheiro com  as funções gerais -->
+		<script src="proj_2020_SCR.js"></script>
+		
+		<!-- Ficheiro com o informação remetente aos carros -->
+		<script src="../hCarros/hCarros.js"></script>
+		
 	</head>
 	<body onload="inic()">
+		<div id="mainContainer">
+			<!-- Container da página da introdução -->
+			<div id="introContainer">
+				<div id="introCarros"></div>
+				<div id="introTexto"></div>
+			</div>
+		</div>
 	</body>
 </html>
