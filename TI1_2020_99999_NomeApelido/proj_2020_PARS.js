@@ -33,17 +33,22 @@ var tituloApres = () => hiperCarros.titulo;
 
 // NIVEL 2 ********************************
 /**
- * Subtítulo da introdução
+ * Subtítulo da apresentação
  * @param {number} iSec
  */
-var subtituloTntrod = iSec => hiperCarros.introd[iSec].subtitulo
+var subtituloApres = iSec => hiperCarros.introd[iSec].subtitulo
 
 /**
- * Teor de um parágrafo de uma secção da introdução
+ * Numero de subtitulos da apresentação
+ */
+var numSubApres = () => hiperCarros.introd.length
+
+/**
+ * Teor de um parágrafo de uma secção da apresentação
  * @param  {number} iSec
  * @param  {number} iParag
  */
-var numParagTextoIntrod = (iSec,iParag) => hiperCarros.introd[iSec].texto[iParag]
+var paragTextoApres = (iSec,iParag) => hiperCarros.introd[iSec].texto[iParag]
  
 /**
  * Número de parágrafos da apresentação
@@ -82,10 +87,6 @@ var pathFotoCarros = (iCarros,iImagem) => PATH + hiperCarros.colecao[iCarros].im
  */
 var numParagsTextoCarros = iCarros => hiperCarros.colecao[iCarros].texto.length
 
-/**
- * Numero de subtitulos da introdução
- */
-var numSecIntrod = () => hiperCarros.introd.length
 
 /**
  * Teor de um parágrafo descritivo de um carro
