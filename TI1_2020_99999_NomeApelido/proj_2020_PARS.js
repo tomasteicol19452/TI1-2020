@@ -3,12 +3,22 @@ PROJ_2020: AVAL. Tecnol. Internet (I)
 Aluno num. 19452, Tomás Colaço
 
 ******* LISTA DE FUNÇÕES DE PARSING *******
-
-
-
-
-
-
+conectorLinksCarros(iCarros,iLink)
+especsCarros(iSec,agr)
+marcaModeloCarros(iCarros)
+numCarros()
+numImagensCarros(iCarros)
+numLinksCarros(iCarros)
+numParagApres(iSec)
+numParagsTextoCarros(iCarros)
+numSubApres()
+paragTextoApres(iSec,iParag)
+paragTextoCarros(iCarros,iParag)
+pathFotoCarros(iCarros,iImagem)
+subtituloApres(iSec)
+tituloApres()
+urlLinkCarros(iCarros,iLink)
+versaoCarros(iCarros)
 */
 
 
@@ -29,7 +39,12 @@ var numCarros = () => hiperCarros.colecao.length-1
  *  Título da apresentação
  * @returns {string} 
  */
-var tituloApres = () => hiperCarros.titulo;
+var tituloApres = () => hiperCarros.titulo
+
+/**
+ * Numero de subtitulos da apresentação
+ */
+var numSubApres = () => hiperCarros.introd.length
 
 // NIVEL 2 ********************************
 /**
@@ -37,11 +52,6 @@ var tituloApres = () => hiperCarros.titulo;
  * @param {number} iSec
  */
 var subtituloApres = iSec => hiperCarros.introd[iSec].subtitulo
-
-/**
- * Numero de subtitulos da apresentação
- */
-var numSubApres = () => hiperCarros.introd.length
 
 /**
  * Teor de um parágrafo de uma secção da apresentação
@@ -86,7 +96,6 @@ var pathFotoCarros = (iCarros,iImagem) => PATH + hiperCarros.colecao[iCarros].im
  * @param {number} iCarros 
  */
 var numParagsTextoCarros = iCarros => hiperCarros.colecao[iCarros].texto.length
-
 
 /**
  * Teor de um parágrafo descritivo de um carro

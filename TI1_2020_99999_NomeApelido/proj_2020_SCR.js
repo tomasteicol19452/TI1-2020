@@ -3,13 +3,23 @@ PROJ_2020: AVAL. Tecnol. Internet (I)
 Aluno num. 19452, Tomás Colaço
 
 ********** LISTA DE FUNÇÕES **********
-
+carregaBackPage(iCarros)
+carregaFrontPage()
+carregaNavegador()
+carroAnterior()
+carroProximo()
+divCarroLinks(iCarros)
+divCarroSpecs(iCarros)
+divCarroTexto(iCarros)
+divImagensCarro(iCarros)
+divFrontCarros()
+divFrontTexto()
+escondeBackPage()
+escondeFrontPage
 inic()
-load
-
-
-
-
+loadInterface()
+mostraCarroImagem(iCarros,iImagem)
+selecionaCarro()
 */
 
 
@@ -23,46 +33,28 @@ function inic() {
 }
 
 // ************** processos ***************
-
-
-// ************* input/output *************
-/** Carrega os elementos html para o objecto da interface. */
-function loadInterface() {
-    //objecto da interface
-    interface={};
-    //mainContainer
-        interface.frontPage=document.getElementById("frontPage");
-            interface.frontCarros=document.getElementById("frontCarros");
-            interface.frontTexto=document.getElementById("frontTexto");
-        //backPage
-        interface.backPage=document.getElementById("backPage");
-            //carroInfo
-                interface.carroModelo=document.getElementById("carroModelo");
-                interface.carroImagem=document.getElementById("carroImagem");
-                //navegador
-                    //button-frontpage
-                    //button-previous
-                    interface.selectCarros=document.getElementById("selectCarros");
-                    //button-next
-                //definicao
-                    interface.specs=document.getElementById("specs");
-                    interface.carroTexto=document.getElementById("carroTexto");
-            interface.carroImagens=document.getElementById("carroImagens");            
-    
-    // interf.selecCarros=document.getElementById("selecCarros");
-    // interf.bioCarros=document.getElementById("bioCarros");
-    
+/** Apresenta frontpage e esconde a backpage.*/
+function escondeBackPage(){
+    //ofusca backpage
+    interface.backPage.style.display="none";
+    //apresenta frontpage
+    interface.frontPage.style.display="block";
+    //reposiciona janela
+	window.scrollTo(0,0);
 }
 
-/** Carrega na interface os elementos da página inicial.*/
-function carregaFrontPage(){
-	frontCarrosConteudo();
-    frontTextoConteudo();
-    escondeBackPage();
+/** Apresenta a backpage e esconde a frontpage */
+function escondeFrontPage(){
+    //apresenta backpage
+    interface.backPage.style.display="block";
+    //ofusca frontpage
+    interface.frontPage.style.display="none";
+    //reposiciona janela
+	window.scrollTo(0,0);
 }
 
 /** Carrega os carros a serem demonstrados na página inicial.*/
-function frontCarrosConteudo(){
+function divFrontCarros(){
     //variaveis necessarias ao ciclo for e string onde o código é concatenado.
     var i, htmlCode='', n = numCarros();
 
@@ -78,7 +70,7 @@ function frontCarrosConteudo(){
 }
 
 /** Carrega o texto no formato da apresentação.*/
-function frontTextoConteudo(){
+function divFrontTexto(){
     //variaveis necessarias aos ciclos for e string onde o código é concatenado.
     var iSec, iParag, htmlCode = '', nSecs = numSubApres(), nParags;
     //Titulo da apresentação
@@ -99,52 +91,6 @@ function frontTextoConteudo(){
     }
     //Coloca o codigo html gerado no elemento da interface 
     interface.frontTexto.innerHTML= htmlCode;
-}
-
-/** Apresenta frontpage e esconde a backpage.*/
-function escondeBackPage(){
-    //ofusca backpage
-    interface.backPage.style.display="none";
-    //apresenta frontpage
-    interface.frontPage.style.display="block";
-    //reposiciona janela
-	window.scrollTo(0,0);
-}
-
-/** Apresenta a backpage com o id do carro selecionado na frontpage
- * @param {number} iCarros index do carro
- */
-function carregaBackPage(iCarros){
-    //idCarroApresentado = 0;
-    //esconde frontpage e apresenta backpage
-    escondeFrontPage();
-    //apresenta a marca/modelo do carro
-	interface.carroModelo.innerHTML=marcaModeloCarros(iCarros)+' - '+versaoCarros(iCarros);
-    //apresenta a primeira imagem do carro
-    mostraCarroImagem(iCarros,0);
-    //carrega conteudo do navegador para a interface
-    carregaNavegador();
-    //sincroniza a lista de opções de carros
-    idCarroApresentado = iCarros; 
-    //muda o index que o selector apresenta
-    interface.selectCarros.selectedIndex = idCarroApresentado;
-    //apresenta as specs + links
-    interface.specs.innerHTML = divCarroSpecs(iCarros) + divCarroLinks(iCarros);
-    //apresenta o texto
-    interface.carroTexto.innerHTML = divCarroTexto(iCarros);
-    //apresenta as imagens do carro as escolher no div carroImagens
-	interface.carroImagens.innerHTML=divImagensCarro(iCarros);
-	
-}
-
-/** Apresenta a backpage e esconde a frontpage */
-function escondeFrontPage(){
-    //apresenta backpage
-    interface.backPage.style.display="block";
-    //ofusca frontpage
-    interface.frontPage.style.display="none";
-    //reposiciona janela
-	window.scrollTo(0,0);
 }
 
 /** Apresenta a imagem grande do carro.
@@ -229,7 +175,7 @@ function divCarroTexto(iCarros){
 }
 
 /** Carrega e apresenta a lista de imagens que podem ser selecionadas para o carro
- * @param {number} iCarros 
+ * @param {number} iCarros index do carro
  */
 function divImagensCarro(iCarros){
     //variaveis necessarias ao ciclo for e string onde o código é concatenado.
@@ -244,3 +190,92 @@ function divImagensCarro(iCarros){
 		}
 	return htmlCode;
 }
+
+
+// ************* input/output *************
+/** Carrega os elementos html para o objecto da interface. */
+function loadInterface() {
+    //objecto da interface
+    interface={};
+    //mainContainer
+        interface.frontPage=document.getElementById("frontPage");
+            interface.frontCarros=document.getElementById("frontCarros");
+            interface.frontTexto=document.getElementById("frontTexto");
+        //backPage
+        interface.backPage=document.getElementById("backPage");
+            //carroInfo
+                interface.carroModelo=document.getElementById("carroModelo");
+                interface.carroImagem=document.getElementById("carroImagem");
+                //navegador
+                    //button-frontpage
+                    //button-previous
+                    interface.selectCarros=document.getElementById("selectCarros");
+                    //button-next
+                //definicao
+                    interface.specs=document.getElementById("specs");
+                    interface.carroTexto=document.getElementById("carroTexto");
+            interface.carroImagens=document.getElementById("carroImagens");
+}
+
+/** Carrega na interface os elementos da página inicial.*/
+function carregaFrontPage(){
+    //carrega os selectores com os carros
+    divFrontCarros();
+    //carrega o texto de apresentação
+    divFrontTexto();
+    //esconde a backpage mesmo antes de ser carregada
+    escondeBackPage();
+}
+
+/** Apresenta a backpage com o id do carro selecionado na frontpage
+ * @param {number} iCarros index do carro
+ */
+function carregaBackPage(iCarros){
+    //idCarroApresentado = 0;
+    //esconde frontpage e apresenta backpage
+    escondeFrontPage();
+    //apresenta a marca/modelo do carro
+	interface.carroModelo.innerHTML=marcaModeloCarros(iCarros)+' - '+versaoCarros(iCarros);
+    //apresenta a primeira imagem do carro
+    mostraCarroImagem(iCarros,0);
+    //carrega conteudo do navegador para a interface
+    carregaNavegador();
+    //sincroniza a lista de opções de carros
+    idCarroApresentado = iCarros; 
+    //muda o index que o selector apresenta
+    interface.selectCarros.selectedIndex = idCarroApresentado;
+    //apresenta as specs + links
+    interface.specs.innerHTML = divCarroSpecs(iCarros) + divCarroLinks(iCarros);
+    //apresenta o texto
+    interface.carroTexto.innerHTML = divCarroTexto(iCarros);
+    //apresenta as imagens do carro as escolher no div carroImagens
+	interface.carroImagens.innerHTML=divImagensCarro(iCarros);
+	
+}
+
+/** Select do carro a ser ilustrado */
+function selecionaCarro(){
+	//index que representa o id do carro em questão
+    idCarroApresentado = interface.selectCarros.selectedIndex;
+    //carrega a página com os valores do carro em questão
+    carregaBackPage(idCarroApresentado);
+}
+
+/** Carrega o carro anterior na lista */
+function carroAnterior(){
+    if(idCarroApresentado > 0){
+        idCarroApresentado -= 1;
+        carregaBackPage(idCarroApresentado);
+    }
+}
+
+/** Carrega o proximo carro na lista */
+function carroProximo(){
+    if(idCarroApresentado < numCarros()){
+        idCarroApresentado += 1;
+        carregaBackPage(idCarroApresentado);
+    }
+}
+
+
+
