@@ -28,7 +28,22 @@ Aluno num. 19452, Tomás Colaço
 				<div id="frontCarros"></div>
 				<div id="frontTexto"></div>
 			</div>
+			<!-- Container da página informativa / backpage -->
 			<div id="backPage">
+				<div id="carroInfo"></div>
+					<div id="carroModelo"></div>
+					<div id="carroImagem"></div>
+					<div id="navegador">
+						<div id="homeButton" onclick="escondeBackPage()">Introdução</div>
+						<div id="prevButton" onclick="carroAnterior()">&#9664</div>
+						<select id="selectCarros" onchange="selecionaCarro()"></select>
+						<div id="nextButton" onclick="carroProximo()">&#9654</div>
+					</div>
+					<div id="carroSpecs">
+						<div id="specs"></div>    
+						<div id="carroTexto"></div>
+					</div>
+				<div id="carroImagens"></div>
 			</div>
 		</div>
 	</body>

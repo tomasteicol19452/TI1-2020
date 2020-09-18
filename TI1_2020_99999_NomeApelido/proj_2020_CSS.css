@@ -7,11 +7,71 @@ Aluno num. 19452, Tomás Colaço
 
 /*superclasses*/
 
+body{background-color:#80a0a0;}
+h1{font:bold 26px arial;margin-top:0px;} 
+h2{font:bold 20px arial;margin-top:25px;color:#006060;border-bottom:2px solid #006060;}
+h3{font:bold 10px arial;color:#ffffff;text-align:center;}
+button{font:bold 16px arial; color:#204080; margin:5px 0px 5px 0px; cursor:pointer;}
+.imgCarros{width:690px;border:2pxsolid #ffffff;}
 
 /*subclasses*/
+.parApres   { font: 15px/1.5 verdana;}
+.selector { float: left; width: 108px;  opacity: 0.6; background-color: #000000; height: 115px;  border: 1px solid #ffffff; text-align: center; font: bold 11px arial; color: #ffffff; margin: 10px; cursor: pointer;}
+.selector:hover{opacity:1.0;}
+
+.dscrCarro{font:12px arial; color:#ffffff;margin:0px 18px 18px 20px;}
+
+.imgMiniCarro{width:100%;}
+.imgMaxiCarro{width:600px; height:300px; cursor:pointer;}
+.imgCarros{width:694px;}
+.divImagensCarro {width: 138px;opacity: 0.6;border: 1px solid #ffffff; margin-bottom: 25px;  cursor: zoom-in;line-height: 0px;}
+
+.ftCarros {width: 100%;}
+.divImagensCarro:hover{opacity:1.0;}
+
+.specsTitulo{font:bold 12px arial;margin-top:2px;color:#ffffff;text-align:center; background-color:#006060;margin-top:0px;}
+.specsTexto{font: 12px arial;margin-top:2px;color:#000000;text-align:center;background-color:#99ffcc; margin-top:0px;}
+
+.tema{ width: 198px;background-color: #408080; color: #ffffff;text-align: center; padding: 4px 0px 1px 0px;font: bold 11px arial;}
+.spec { width: 198px; background-color: #ddeeee;color: #000000; text-align: center; padding: 2px 0px 4px 0px; font: 13px arial;}
+.specs {width: 198px;border: 1px solid #006060;}
 
 
+.webLinks { margin-top: 15px; text-align: right; }
+.link{color:#80a0a0;font:bold 15px/1.2 arial;text-decoration:none;}
+.link:hover{color:#000000;text-decoration:underline;}
 /*instâncias*/
+
+#mainContainer{width:900px;border:5px solid #006060;margin:0px auto 0px auto;}
+	#frontPage{ overflow: auto; width: 900px; background-color: #006060;}
+		#frontCarros{float:left;width:260px;background-color:#006060;padding:40px 15px 40px 45px;} 
+		#frontTexto{float:left;width:515px;background-color:#ffffff;padding:40px 40px 40px 25px;}  
+
+	#backPage{overflow:auto;width:900px;background-color:#006060;}
+
+
+		#carro { float: left; width: 694px;}
+			
+			#tituloCarros{width: 694px; padding: 10px 0px 10px 0px; text-align: center; font: bold 20px arial; color: #ffffff;}
+            #listaCarros{font: 16px arial; cursor: pointer;}
+
+#imagensCarros {float: left;width: 140px;padding: 43px 41px 0px 25px;height: 800px;}
+		
+			#scrooll{ width: 694px; padding: 3px 0px 3px 0px; }
+			#definicao{overflow:auto;width:694px;padding:0px;background-color:#ffffff;}
+				#specs1 {   float: left; width: 200px;padding: 27px 5px 40px 15px;background-color: #ffffff;}}
+					
+				#specs2{float: left;width: 434px;padding: 10px 15px 40px 15px; background-color: #ffffff;}
+
+				
+		#imagensCarros{float: left; width: 140px;padding: 43px 41px 0px 25px; height: 800px;}
+
+/*filhos do scroll*/
+#botEsq,#botDir{font:bold 17px arial;     width:30px; color:#006060; cursor:pointer; padding:0px;}
+#botEsq{text-align:left;}
+#listaCarro{font:16px arial;cursor:pointer;}
+#botDir{text-align:right;}
+#botIntro{font:bold 16px arial; width:107px;  color:#006060; cursor:pointer; text-align:center;}
 
 
 
